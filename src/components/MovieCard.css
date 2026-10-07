@@ -4,7 +4,6 @@
     border-radius: var(--radius);
     box-shadow: var(--shadow);
     overflow: hidden;
-    width: var(--card-width);
 }
 
 .movie-card__poster {
