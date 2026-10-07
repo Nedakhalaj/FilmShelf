@@ -5,6 +5,9 @@ import { useState } from 'react'
 import SearchBar from './components/SearchBar.jsx'
 
 
+import { fetchNowPlaying } from './api/tmdb.js'
+fetchNowPlaying().then((data) => console.log(data))
+
 
 
 const sampleMovies = [{
