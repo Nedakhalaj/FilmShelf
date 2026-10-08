@@ -1,53 +1,50 @@
 
+import { useState, useEffect } from 'react'
 import Navbar from './components/Navbar.jsx'
 import MovieGrid from './components/MovieGrid.jsx'
-import { useState } from 'react'
 import SearchBar from './components/SearchBar.jsx'
-
-
+import Spinner from './components/Spinner.jsx'
+import ErrorMessage from './components/ErrorMessage.jsx'
 import { fetchNowPlaying } from './api/tmdb.js'
-fetchNowPlaying().then((data) => console.log(data))
 
 
-
-const sampleMovies = [{
-  id: 27205,
-  title: 'Inception',
-  year: 2010,
-  posterUrl: 'https://image.tmdb.org/t/p/w342/9gk7adHYeDvHkCSEqAvQNLV5Uge.jpg',
-},
-{
-id: 550,
-title: 'Fight Club',
-year: 1999,
-posterUrl: 'https://image.tmdb.org/t/p/w342/pB8BM7pdSp6B6Ih7QZ4DrQ3PmJK.jpg',
-},
-{
-  id: 603,
-  title: 'The Matrix',
-  year: 1999,
-  posterUrl: 'https://image.tmdb.org/t/p/w342/f89U3ADr1oiB1s9GkdPOEpXUk5H.jpg',
-}
-]
 
 function App() {
+const [query, setQuery] = useState('')
+const [movies, setMovies] = useState([])
+const [isLoading, setIsLoading] = useState(true)
+const [error, setError] = useState(null)
 
-  const [query, setQuery] = useState('')
+useEffect(() => {
+async function loadMovies() {
+  try{
+    const result = await fetchNowPlaying()
+    setMovies(result)
+  }catch (err){
+    console.error(err)
+    setError("We couldn't load the movies. check your connection and try again")
+  }finally{
+    setIsLoading(false)
+  }
+}
+loadMovies()
+}, [])
 
-  const visibleMovies = sampleMovies.filter((movie) =>
+const visibleMovies = movies.filter((movie) =>
   movie.title.toLowerCase().includes(query.toLocaleLowerCase())
-  )
-
-  return (
-    <div className="app">
-      <Navbar />
-      <main className="page">
-        <h1>Latest movies</h1>
-        <SearchBar query={query} onQueryChange={setQuery} />
-         <MovieGrid movies={visibleMovies} />
+)
+return(
+  <div className="app">
+    <Navbar />
+    <main className="page">
+    <h1>Lates movies</h1>
+    <SearchBar query={query} onQueryChange={setQuery} />
+    {isLoading && <Spinner />}
+    {error && <ErrorMessage message={error} />}
+    {!isLoading && !error && <MovieGrid movies={visibleMovies} />}
       </main>
-    </div>  
-  )
+  </div>
+)
 }
 
 export default App

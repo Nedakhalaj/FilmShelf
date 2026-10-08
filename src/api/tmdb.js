@@ -11,9 +11,24 @@ async function request(path, params = {}){
         }
         return response.json()
 }
-export function fetchNowPlaying(){
-    return request('/movie/now_playing')
+
+function toMovie(raw){
+    return{
+        id: raw.id,
+        title: raw.title,
+        year: raw.release_date ? raw.release_date.slice(0, 4) : 'Unknown',
+        posterUrl: raw.poster_path ? imageUrl(raw.poster_path) : null,
+        overview: raw.overview,
+        rating: raw.vote_average,
+    }
 }
+
+
+export async function fetchNowPlaying() {
+    const data = await request('/movie/now_playing')
+    return data.results.map(toMovie)
+}
+
 
 export function imageUrl(path, size = 'w342'){
     return `${IMAGE_BASE_URL}/${size}${path}`

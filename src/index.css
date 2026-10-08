@@ -1,7 +1,7 @@
 :root{
   /* colors:soft green palette */
-  --color-bg: #cbf0c9;
-  --color-surface: #ffffff;
+  --color-bg: #EDF9EB;
+  --color-surface: #D6F6D5;
   --color-text: #1f2a24;
   --color-text-muted: #5f6b64;
   --color-border: #d5ddd7;
@@ -18,11 +18,11 @@
 
   /* shape and type */
 
---redius: 10px;
+--radius: 10px;
 --shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
 --font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
 --page-max-width: 1200px;
---card_width: 180px;
+--card-width: 180px;
 }
 
 *{
