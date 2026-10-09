@@ -1,0 +1,12 @@
+.movie-row {
+display: flex;
+gap: var(--space-3);
+overflow: auto;
+padding-bottom: var(--space-2);
+scroll-snap-type: x mandatory;
+}
+
+.movie-row > * {
+    flex: 0 0 var(--card-width);
+    scroll-snap-align: start;
+}

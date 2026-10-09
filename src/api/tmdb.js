@@ -24,12 +24,24 @@ function toMovie(raw){
 }
 
 
-export async function fetchNowPlaying() {
-    const data = await request('/movie/now_playing')
+async function fetchMovieList(path){
+    const data = await request(path)
     return data.results.map(toMovie)
 }
 
+export function fetchNowPlaying() {
+    return fetchMovieList('/movie/now_playing')
+}
+
+export function fetchPopular(){
+    return fetchMovieList('/movie/popular')
+}
+
+export function fetchTopRated(){
+    return fetchMovieList('/movie/top_rated')
+}
 
 export function imageUrl(path, size = 'w342'){
     return `${IMAGE_BASE_URL}/${size}${path}`
 }
+
