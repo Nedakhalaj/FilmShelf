@@ -22,7 +22,7 @@
 --shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
 --font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
 --page-max-width: 1200px;
---card-width: 180px;
+--card-width: 150px;
 }
 
 *{
