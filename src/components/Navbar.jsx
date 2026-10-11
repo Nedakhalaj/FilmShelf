@@ -1,10 +1,11 @@
 import './Navbar.css'
+import { Link } from 'react-router-dom'
 
 function Navbar() {
     return(
         <nav className="navbar">
-            <a className="navbar__brand" href="/">FilmShelf</a>
-            <a className="navbar__cart"  href="/cart">Cart (0)</a>
+            <Link className="navbar__brand" to="/">FilmShelf</Link>
+            <Link className="navbar__cart"  to="/cart">Cart (0)</Link>
         </nav>
     )
 }
