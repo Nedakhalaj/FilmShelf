@@ -1,7 +1,7 @@
 .movie-row {
 display: flex;
 gap: var(--space-3);
-overflow: auto;
+overflow-x: auto;
 padding-bottom: var(--space-2);
 scroll-snap-type: x mandatory;
 }

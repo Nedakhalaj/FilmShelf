@@ -1,26 +1,24 @@
-
-import { useState } from 'react'
+import {Routes, Route} from 'react-router-dom'
 import Navbar from './components/Navbar.jsx'
-import SearchBar from './components/SearchBar.jsx'
-import MovieSection from './components/MovieSection.jsx'
-import { fetchNowPlaying, fetchPopular, fetchTopRated } from './api/tmdb.js'
+import HomePage from './pages/HomePage'
+import MovieDetailPage from './pages/MovieDetailPage'
+import CartPage from './pages/CartPage'
+import NotFoundPage from './pages/NotFoundPage'
 
 function App() {
-  const [query, setQuery] = useState('')
-
-  return (
+  return(
     <div className="app">
       <Navbar />
       <main className="page">
-        <h1>Discover movies</h1>
-        <SearchBar query={query} onQueryChange={setQuery} />
-        <MovieSection title="Now playing" fetchMovies={fetchNowPlaying} query={query} />
-        <MovieSection title="Popular" fetchMovies={fetchPopular} query={query} />
-        <MovieSection title="Top rated" fetchMovies={fetchTopRated} query={query} />
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/movie/:id" element={<MovieDetailPage />} />
+          <Route path="/cart" element={<CartPage />} />
+          <Route path='*' element={<NotFoundPage />} />
+        </Routes>
       </main>
     </div>
   )
 }
 
 export default App
-
