@@ -13,7 +13,7 @@ function MovieCard({ movie }){
         <h3 className="movie-card__title">{movie.title}</h3>
         </Link>
         <p className="movie-card__meta">{movie.year}</p>
-        <button className="movie-card__button">Add to cart</button>
+        
     </article>
     )
 }
