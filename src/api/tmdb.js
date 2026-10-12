@@ -23,6 +23,20 @@ function toMovie(raw){
     }
 }
 
+function toMovieDetails(raw) {
+    return {
+        ...toMovie(raw),
+        largePosterUrl: raw.poster_path ? imageUrl(raw.poster_path, 'w500') : null,
+        backdropUrl: raw.backdrop_path ? imageUrl(raw.backdrop_path, 'w1280') : null,
+        genres: raw.genres.map((genre) => genre.name),
+        runtime: raw.runtime,
+    }
+}
+
+export async function fetchMovie(id) {
+    const raw = await request(`/movie/${id}`)
+    return toMovieDetails(raw)
+}
 
 async function fetchMovieList(path){
     const data = await request(path)
