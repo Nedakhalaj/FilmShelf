@@ -8,7 +8,7 @@ function CartPage() {
   const cartItems = useSelector((state) => state.cart.items)
   const dispatch = useDispatch()
 
-  if (cart.length === 0) {
+  if (cartItems.length === 0) {
     return (
       <>
         <h1>Your cart</h1>
