@@ -1,8 +1,13 @@
 import { Link } from 'react-router-dom'
 import EmptyState from '../components/EmptyState.jsx'
 import './CartPage.css'
+import { useSelector, useDispatch } from 'react-redux'
+import { removeFromCart } from '../store/cartSlice.js'
 
-function CartPage({ cart, onRemoveFromCart }) {
+function CartPage() {
+  const cartItems = useSelector((state) => state.cart.items)
+  const dispatch = useDispatch()
+
   if (cart.length === 0) {
     return (
       <>
@@ -17,7 +22,7 @@ function CartPage({ cart, onRemoveFromCart }) {
     <>
       <h1>Your cart</h1>
       <ul className="cart-list">
-        {cart.map((movie) => (
+        {cartItems.map((movie) => (
           <li key={movie.id} className="cart-item">
             <img className="cart-item__poster" src={movie.posterUrl} alt={movie.title} />
             <Link className="cart-item__title" to={`/movie/${movie.id}`}>
@@ -25,7 +30,7 @@ function CartPage({ cart, onRemoveFromCart }) {
             </Link>
             <button
               className="button button--danger"
-              onClick={() => onRemoveFromCart(movie.id)}
+              onClick={() => dispatch(removeFromCart(movie.id))}
             >
               Remove
             </button>

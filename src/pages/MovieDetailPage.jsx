@@ -3,9 +3,13 @@ import { useParams, Link } from 'react-router-dom'
 import { fetchMovie } from '../api/tmdb.js'
 import Spinner from '../components/Spinner.jsx'
 import ErrorMessage from '../components/ErrorMessage.jsx'
+import { useSelector, useDispatch } from 'react-redux'
+import {addToCart, removeFromCart} from '../store/cartSlice.js'
 
-function MovieDetailPage({cart, onAddToCart, onRemoveFromCart}) {
+function MovieDetailPage() {
   const { id } = useParams()
+  const cartItems = useSelector((state) => state.cart.items)
+  const dispatch =useDispatch()
   const [movie, setMovie] = useState(null)
   const [isLoading, setIsLoading] = useState(true)
   const [error, setError] = useState(null)
@@ -36,7 +40,7 @@ function MovieDetailPage({cart, onAddToCart, onRemoveFromCart}) {
     return <ErrorMessage message={error} />
   }
 
-  const isInCart = cart.some((item) => item.id === movie.id)
+  const isInCart = cartItems.some((item) => item.id === movie.id)
 
   return (
     <article className="movie-detail">
@@ -49,11 +53,11 @@ function MovieDetailPage({cart, onAddToCart, onRemoveFromCart}) {
       <p>Rating: {movie.rating.toFixed(1)} / 10</p>
       <p>{movie.overview}</p>
             {isInCart ? (
-        <button className="button button--danger" onClick={() => onRemoveFromCart(movie.id)}>
+        <button className="button button--danger" onClick={() => dispatch(removeFromCart(movie.id))}>
           Remove from cart
         </button>
       ) : (
-        <button className="button" onClick={() => onAddToCart(movie)}>
+        <button className="button" onClick={() => dispatch(addToCart(movie))}>
           Add to cart
         </button>
       )}
