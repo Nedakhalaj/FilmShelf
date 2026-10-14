@@ -1,7 +1,9 @@
 import './Navbar.css'
 import { Link } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 
-function Navbar({ cartCount }) {
+function Navbar() {
+    const cartCount = useSelector((state) => state.cart.items.length)
     return(
         <nav className="navbar">
             <Link className="navbar__brand" to="/">FilmShelf</Link>
