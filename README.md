@@ -49,7 +49,7 @@ Final project in the Mobile Application Developer program at Folkuniversitetet (
    npm run dev
    ```
 
-   Then open the address shown in the terminal, usually http://localhost:5173.
+   Then open the address shown in the terminal, usually http://localhost:5177.
 
 ## Project structure
 
