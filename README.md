@@ -1,16 +1,66 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# FilmShelf
 
-Currently, two official plugins are available:
+A movie shop web app built with React. Browse current, popular and top rated films from TMDb, open a film to see its details, and collect films in a shopping cart that is saved between visits.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Final project in the Mobile Application Developer program at Folkuniversitetet (2025–2027).
 
-## React Compiler
+## Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- Home page with three horizontal rows: Now playing, Popular and Top rated
+- Search that filters the movies in all rows while you type
+- "See all" page with a responsive grid for each list
+- Detail page for each film with poster, year, runtime, genres, rating and overview
+- Shopping cart: add and remove films from the detail page, item count in the navbar, cart page
+- The cart is kept after a page refresh
+- Loading spinner, error messages and empty states for every view that fetches data
+- Not found page for unknown addresses
 
-## Expanding the ESLint configuration
+## Built with
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- React, set up with Vite
+- React Router for the pages
+- Redux Toolkit for the cart state
+- localStorage for saving the cart
+- Plain CSS with CSS variables
+- The TMDb API for all movie data
+
+## Run it locally
+
+1. Clone the repository and install the dependencies:
+
+   ```
+   git clone https://github.com/Nedakhalaj/FilmShelf.git
+   cd FilmShelf
+   npm install
+   ```
+
+2. Get a free API key at themoviedb.org (Settings → API).
+
+3. Create a file called `.env` in the project root:
+
+   ```
+   VITE_TMDB_API_KEY=your_key_here
+   ```
+
+4. Start the app:
+
+   ```
+   npm run dev
+   ```
+
+   Then open the address shown in the terminal, usually http://localhost:5173.
+
+## Project structure
+
+```
+src/
+  api/          TMDb requests (tmdb.js)
+  components/   Reusable pieces: MovieCard, MovieRow, MovieGrid, SearchBar, Navbar ...
+  pages/        One component per page: Home, Browse, Movie detail, Cart, Not found
+  store/        Redux store and cart slice
+```
+
+## Data
+
+This product uses the TMDB API but is not endorsed or certified by TMDB.
