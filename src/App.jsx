@@ -4,6 +4,8 @@ import HomePage from './pages/HomePage'
 import MovieDetailPage from './pages/MovieDetailPage'
 import CartPage from './pages/CartPage'
 import NotFoundPage from './pages/NotFoundPage'
+import BrowsePage from './pages/BrowsePage.jsx'
+
 
 function App() {
   return (
@@ -15,6 +17,7 @@ function App() {
           <Route path="/movie/:id" element={<MovieDetailPage />} />
           <Route path="/cart" element={<CartPage />} />
           <Route path="*" element={<NotFoundPage />} />
+          <Route path="/browse/:list" element={<BrowsePage />} />
         </Routes>
       </main>
     </div>

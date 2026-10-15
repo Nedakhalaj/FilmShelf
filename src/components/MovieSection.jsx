@@ -4,8 +4,10 @@ import MovieRow from './MovieRow'
 import Spinner from './Spinner'
 import ErrorMessage from './ErrorMessage'
 import EmptyState from './EmptyState'
+import { Link } from 'react-router-dom'
 
-function MovieSection({ title, fetchMovies, query }) {
+
+function MovieSection({ title,listId ,fetchMovies, query }) {
     const [movies, setMovies] = useState([])
     const [isLoading, setIsLoading] = useState(true)
     const[error, setError] = useState(null)
@@ -36,7 +38,7 @@ return(
     <section className="movie-section">
         <div className="movie-section__header">
             <h2 className="movie-section__title">{title}</h2>
-            <a className="movie-section__link" href="/browse">See all</a>
+            <Link className="movie-section__link" to={`/browse/${listId}`}>See all</Link>
         </div>
         {isLoading && <Spinner />}
         {error && <ErrorMessage message={error} />}
