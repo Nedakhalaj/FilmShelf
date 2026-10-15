@@ -10,9 +10,9 @@ function HomePage(){
         <>
         <h1>Discover movies</h1>
         <SearchBar query={query} onQueryChange={setQuery}/>
-        <MovieSection title="Now Playing" fetchMovies={fetchNowPlaying} query={query}/>
-        <MovieSection title="Popular" fetchMovies={fetchPopular} query={query}/>
-        <MovieSection title="Top rated" fetchMovies={fetchTopRated} query={query}/>
+        <MovieSection title="Now playing" listId="now-playing" fetchMovies={fetchNowPlaying} query={query} />
+        <MovieSection title="Popular" listId="popular" fetchMovies={fetchPopular} query={query} />
+        <MovieSection title="Top rated" listId="top-rated" fetchMovies={fetchTopRated} query={query} />
         </>
     )
 }
