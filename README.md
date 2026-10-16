@@ -62,6 +62,7 @@ src/
   pages/        One component per page: Home, Browse, Movie detail, Cart, Not found
   store/        Redux store and cart slice
 ```
+![Uploading Screenshot 2026-10-16 at 14.18.54.png…]()
 
 ## Data
 
