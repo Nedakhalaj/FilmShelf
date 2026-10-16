@@ -4,7 +4,7 @@ import './SearchBar.css'
 function SearchBar({ query, onQueryChange }){
     return(
         <div className="search-bar">
-            <label className="search-bar__label" htmlFor="search">
+                  <label className="visually-hidden" htmlFor="search">
                 Search movies
             </label>
             <input
