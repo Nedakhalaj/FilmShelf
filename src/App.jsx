@@ -5,6 +5,8 @@ import MovieDetailPage from './pages/MovieDetailPage'
 import CartPage from './pages/CartPage'
 import NotFoundPage from './pages/NotFoundPage'
 import BrowsePage from './pages/BrowsePage.jsx'
+import Footer from './components/Footer.jsx'
+
 
 
 function App() {
@@ -20,6 +22,7 @@ function App() {
           <Route path="/browse/:list" element={<BrowsePage />} />
         </Routes>
       </main>
+      <Footer />
     </div>
   )
 }

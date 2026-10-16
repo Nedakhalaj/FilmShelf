@@ -45,6 +45,7 @@
   height: 22px;
   padding: 0 6px;
   border-radius: 999px;
+  color: var(--color-on-accent);
   background: var(--color-accent);
   font-size: 0.8rem;
 }

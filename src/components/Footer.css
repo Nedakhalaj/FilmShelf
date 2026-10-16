@@ -1,0 +1,18 @@
+.footer {
+  margin-top: var(--space-5);
+  padding: var(--space-4);
+  border-top: 1px solid var(--color-border);
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+}
+
+.footer__brand {
+  margin: 0 0 var(--space-1);
+  font-weight: 800;
+  color: var(--color-text);
+}
+
+.footer__note {
+  margin: 0;
+}
