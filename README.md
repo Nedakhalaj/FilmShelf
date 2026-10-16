@@ -3,6 +3,8 @@
 
 A movie shop web app built with React. Browse current, popular and top rated films from TMDb, open a film to see its details, and collect films in a shopping cart that is saved between visits.
 
+![FilmShelf home page](screenshot.png)
+
 **Live demo:** https://nedakhalaj.github.io/FilmShelf/
 
 Final project in the Mobile Application Developer program at Folkuniversitetet (2025–2027).
