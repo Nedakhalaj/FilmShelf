@@ -20,6 +20,7 @@ function CartPage() {
 
   return (
     <>
+     <Link className="back-link" to="/">← Continue shopping</Link>
       <h1>Your cart</h1>
       <ul className="cart-list">
         {cartItems.map((movie) => (
